@@ -65,7 +65,7 @@ function checkInputs(){
     else{
         Full();
     };
-    
+
     if(Amount==0){
         NotCero();
     }
@@ -85,8 +85,7 @@ function empty(input){
                                         <strong>Some fields are missing</strong>
                                     </div>
                                      </div>`;
-   input.css()
-    
+      
     
 };
 
