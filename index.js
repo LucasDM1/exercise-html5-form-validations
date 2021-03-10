@@ -11,8 +11,10 @@ let PostalCode = document.getElementById("inputZip");
 let Messages = document.getElementById("Messages");
 
 myForm.addEventListener('submit', e => {//evitar el submit
-	e.preventDefault();
-	checkInputs();//comprobar los inputs
+    e.preventDefault();
+    console.log(FirstName.id);
+    checkInputs();//comprobar los inputs
+   
 });
 
 function checkInputs(){
@@ -27,86 +29,53 @@ function checkInputs(){
     const CityValue = City.value;
     const StateValue = State.value;
     const MessagesValue = Messages.value;
-
-
-
-    if(CardNumberValue==""){
-        empty(CardNumber);
+    
+    if(CardNumberValue==''||CardCVCValue==''||AmountValue==''||PostalCodeValue==''||FirstNameValue==''||LastNameValue==''||CityValue==''||StateValue=='Pick a State'||MessagesValue==''){
+        empty();
+        
     }else{
         Full();
     };
 
+   if(CardNumberValue.length != 17||CardNumberValue=='') {
+		InputError(CardNumber, 'Card Number should have 17 digits');
+	} else {
+		InputSuccess(CardNumber);
+	}
+	
     
-    if(CardNumberValue.length!=17){
-        shouldNum(17,"Card Number");
-        
-    }
-    else{
-        Full();
-    };
-
-    if(CardCVCValue==""){
-        empty(CardCVC);
-    }
-    else{
-        Full();
-    };
-
-    if(CardCVCValue.length!=3){
-        shouldNum(3,"CVC Number"); 
-    }
-    else{
-        Full();
-    };
-
-    if(AmountValue==""){
-        empty(Amount); 
-    }
-    else{
-        Full();
-    };
-
-    if(Amount==0){
-        NotCero();
-    }
-    else{
-        Full();
-    };
- 
     
     
         
     
 };
 //input lo voy a ocupar para el fondo alert
-function empty(input){
+function empty(){
     document.getElementById("Warning").innerHTML=`<div class="col-12">
                                     <div class="alert alert-danger" role="alert">
                                         <strong>Some fields are missing</strong>
-                                    </div>
-                                     </div>`;
-      
-    
-};
-
-
-
-function shouldNum(len, name){
- document.getElementById("Warning").innerHTML=`<div class="col-12">
-                                    <div class="alert alert-danger" role="alert">
-                                        <strong>The ${name} should have ${len} digits </strong>
                                     </div>
                                      </div>`;
 };
 
 function Full(){
     document.getElementById("Warning").innerHTML=" "
+};
+
+
+function InputError(input, msg){
+    input.style.background="#f8d7da";
+    const div = input.parentElement;
+    let littlemsg=document.createElement('small');
+    littlemsg.innerHTML=`<>${msg}<>`;
+    div.appendChild(littlemsg);
+    
+};
+function InputSuccess(input){
+    input.style.background="white"
+    const div = input.parentElement;
+    let small=div.querySelector("small");
+    small.innerText="";
 
 };
-function NotCero (){
-    document.getElementById("Warning").innerHTML=`<div class="col-12">
-                                    <div class="alert alert-danger" role="alert">
-                                        <strong>The Amount should be different than cero</strong>
-                                    </div>
-                                     </div>`;
-};
+
