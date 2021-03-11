@@ -36,32 +36,38 @@
                                     <label for="CardNumber"><strong>Card #</strong></label>
                                     <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control mt-2" id="CardNumber"
                                         placeholder="XXXXXXXXXXXXXX">
+                                    <small></small>
                                     
                                 </div>
                                 <div class="col-3">
                                     <label for="CardCVC"><strong>CVC #</strong></label>
                                     <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control mt-2" id="CardCVC"
                                         placeholder="000">
+                                    <small></small>
                                 </div>
                                 <div class="col-4">
                                     <label for="amount"><strong>Amount</strong></label>
                                     $<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control mt-2" id="amount" placeholder="Amount">
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="row pb-3">
                                 <div class="col-6">
                                     <label for="FirstName"><strong>First Name</strong></label>
                                     <input type="text" class="form-control mt-2" id="FirstName" placeholder="">
+                                    <small></small>
                                 </div>
                                 <div class="col-6">
                                     <label for="LastName"><strong>Last Name</strong></label>
                                     <input type="text" class="form-control mt-2" id="LastName" placeholder="">
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="row pb-3">
                                 <div class="col-6">
                                     <label for="inputCity"><strong>City</strong> </label>
                                     <input type="text" class="form-control mt-2" id="inputCity">
+                                    <small></small>
                                 </div>
                                 <div class="col-3">
                                     <label for="inputState"><strong>State</strong></label>
@@ -69,11 +75,12 @@
                                         <option selected>Pick a State</option>
                                         <option>...</option>
                                     </select>
+                                    <small></small>
                                 </div>
                                 <div class="col-3">
                                     <label for="inputZip"><strong>Postal Code</strong></label>
                                     <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control mt-2" id="inputZip">
-
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="row pb-5">
@@ -82,7 +89,7 @@
                                     <div class=" col-7 bg-secondary rounded mt-2 pr-0 p-3">
                                         <div class="form-check form-check-inline bg-secondary">
                                             <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="option1">
+                                                id="inlineRadio1" value="option1" checked>
                                             <label class="form-check-label" for="inlineRadio1"><i
                                                     class="fab fa-cc-mastercard fa-lg text-white"></i></label>
                                         </div>
