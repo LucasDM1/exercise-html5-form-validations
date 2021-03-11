@@ -36,12 +36,38 @@ function checkInputs(){
     }else{
         Full();
     };
-
-   if(CardNumberValue.length != 17||CardNumberValue=='') {
+    //Numbers validation
+    if(CardNumberValue.length != 17||CardNumberValue=='') {
 		InputError(CardNumber, 'Card Number should have 17 digits');
 	} else {
 		InputSuccess(CardNumber);
-	}
+    };
+
+    if(CardCVCValue.length != 3||CardCVCValue=='') {
+		InputError(CardCVC, 'Card CVC should have 3 digits');
+	} else {
+		InputSuccess(CardCVC);
+    };
+
+    if(AmountValue.length == 0 ||AmountValue=='') {
+		InputError(Amount, 'Amount should be more than 0');
+	} else {
+		InputSuccess(Amount);
+    };
+    
+    if(PostalCodeValue.length != 5||PostalCodeValue=='') {
+		InputError(PostalCode, 'Insert a valid postal code');
+	} else {
+		InputSuccess(PostalCode);
+    };
+    //strings validation
+    if(typeof FirstNameValue == "number" || CardNumberValue == '') {
+		InputError(FirstName, 'Insert a valid name');
+	} else {
+		InputSuccess(FirstName);
+    };
+   
+    
 	
     
     
@@ -64,11 +90,13 @@ function Full(){
 
 
 function InputError(input, msg){
+    
     input.style.background="#f8d7da";
     const div = input.parentElement;
     let littlemsg=document.createElement('small');
-    littlemsg.innerHTML=`<>${msg}<>`;
-    div.appendChild(littlemsg);
+    littlemsg.innerHTML=`${msg}`;
+    div.appendChild(littlemsg);}
+    
     
 };
 function InputSuccess(input){
